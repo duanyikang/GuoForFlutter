@@ -20,6 +20,7 @@ class StarDetailPage extends StatefulWidget {
 
 class _StarDetailPage extends State<StarDetailPage> {
   List<dynamic> videolist = [];
+  List<String> bottomTags = [];
 
   OffsetNoitiferData vd = OffsetNoitiferData(0);
 
@@ -107,11 +108,11 @@ class _StarDetailPage extends State<StarDetailPage> {
                         margin: EdgeInsets.all(8),
                         child: Stack(
                           alignment: Alignment.center,
-                          children: <Widget>[new Text(index.toString())],
+                          children: <Widget>[new Text(bottomTags[index])],
                         ),
                       );
                     },
-                    itemCount: 50,
+                    itemCount: bottomTags == null ? 0 : bottomTags.length,
                   ),
                 )),
           ),
@@ -148,8 +149,10 @@ class _StarDetailPage extends State<StarDetailPage> {
 
   void init() async {
     List temp = await api.getVideoDetail('1');
+    List bottomTemp = await api.getBottomTags('北京');
     setState(() {
       videolist = temp;
+      bottomTags = bottomTemp.cast<String>();
     });
   }
 }
