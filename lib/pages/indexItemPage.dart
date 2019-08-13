@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/models/Banner.dart';
 import 'package:flutter_app/models/starShop.dart';
 import 'package:flutter_app/widget/starItemWidget.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:flutter_app/utils/api.dart' as api;
 
 class IndexItemList extends StatefulWidget {
   final List data;
@@ -17,9 +19,16 @@ class IndexItemList extends StatefulWidget {
 
 class _IndexItemListState extends State<IndexItemList>
     with AutomaticKeepAliveClientMixin {
+  List<dynamic> bannerList = [];
+
   @override
-  // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
+
+  @override
+  void initState() {
+    super.initState();
+    iniBanner();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +52,7 @@ class _IndexItemListState extends State<IndexItemList>
         child: Padding(
             padding: new EdgeInsets.all(8.0),
             child: GridView.builder(
-                itemCount: widget.data.length,
+                itemCount: widget.data==null?0:widget.data.length,
                 //SliverGridDelegateWithFixedCrossAxisCount 构建一个横轴固定数量Widget
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     //横轴元素个数
@@ -68,7 +77,7 @@ class _IndexItemListState extends State<IndexItemList>
         child: Swiper(
           itemBuilder: _swiperBuilder,
           itemWidth: 326,
-          itemCount: 3,
+          itemCount: bannerList == null ? 0 : bannerList.length,
           pagination: SwiperPagination(
               builder: DotSwiperPaginationBuilder(
                   color: Color(0x80000000),
@@ -96,7 +105,7 @@ class _IndexItemListState extends State<IndexItemList>
         padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
         child: ClipRRect(
             child: Image.network(
-              'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564997524&di=85a477c6ea32578b002ea55a16d75a3f&imgtype=jpg&er=1&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20170924%2F76cdd4a28b1545d98646fee678350d74.jpeg',
+              BannerBean.formJson(bannerList[index]).url,
               fit: BoxFit.cover,
             ),
             borderRadius: BorderRadius.only(
@@ -127,5 +136,12 @@ class _IndexItemListState extends State<IndexItemList>
         handle: NestedScrollView.sliverOverlapAbsorberHandleFor(context),
       );
     }
+  }
+
+  void iniBanner() async {
+    List res = await api.getBanner();
+    setState(() {
+      bannerList = res;
+    });
   }
 }

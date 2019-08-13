@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_app/delegate/GeneralSliverDelegate.dart';
 import 'package:flutter_app/delegate/OffsetNotifierData.dart';
@@ -138,7 +137,7 @@ class _StarDetailPage extends State<StarDetailPage> {
                             StarShopModel.fromJson(videolist[index])),
                   );
                 },
-                childCount: videolist.length,
+                childCount: videolist == null ? 0 : videolist.length,
               ),
             ),
           ),

@@ -2,7 +2,7 @@ import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
 
 getStarList() async {
-  var res = await http.post('http://10.10.20.9:8080/listinfo');
+  var res = await http.get('http://10.10.20.9:8080/sports/getList');
   if (res.statusCode == 200) {
     return convert.jsonDecode(res.body)['data'];
   } else {
@@ -11,10 +11,19 @@ getStarList() async {
 }
 
 getVideoDetail(id) async {
-  var res = await http.post('http://10.10.20.9:8080/videosinfo');
+  var res = await http.get('http://10.10.20.9:8080/sports/getVideoDetail');
   if (res.statusCode == 200) {
     return convert.jsonDecode(res.body)['data'];
   } else {
     print("Request failed with status: ${res.statusCode}.");
+  }
+}
+
+getBanner()async{
+  var res = await http.get('http://10.10.20.9:8080/sports/getBanner');
+  if (res.statusCode == 200) {
+    return convert.jsonDecode(res.body)['data'];
+  } else {
+    print("走到我了？2222: ${res.statusCode}.");
   }
 }
