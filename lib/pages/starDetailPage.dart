@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/delegate/GeneralSliverDelegate.dart';
 import 'package:flutter_app/delegate/OffsetNotifierData.dart';
 import 'package:flutter_app/delegate/SearchWidgetDelegate.dart';
+import 'package:flutter_app/models/HeadBean.dart';
 import 'package:flutter_app/models/starShop.dart';
 import 'package:flutter_app/utils/api.dart' as api;
-import 'package:flutter_app/widget/destinationSearchWidget.dart';
-import 'package:flutter_app/widget/starItemWidget.dart';
+import 'package:flutter_app/widget/DestinationMiddleWidget.dart';
+import 'package:flutter_app/widget/DestinationSearchWidget.dart';
+import 'package:flutter_app/widget/StarItemWidget.dart';
 
 class StarDetailPage extends StatefulWidget {
   final StarShopModel starShopModel;
@@ -21,6 +23,7 @@ class StarDetailPage extends StatefulWidget {
 class _StarDetailPage extends State<StarDetailPage> {
   List<dynamic> videolist = [];
   List<String> bottomTags = [];
+  HeadBean headBean;
 
   OffsetNoitiferData vd = OffsetNoitiferData(0);
 
@@ -40,37 +43,21 @@ class _StarDetailPage extends State<StarDetailPage> {
             floating: false,
             delegate: SearchWidgetDelegate(
                 minHeight: 100, //收起的高度
-                maxHeight: 150,
+                maxHeight: 130,
                 vd: vd, //展开的最大高度
                 child: DestinationSearchWidget(
                   data: vd,
+                  headBean: headBean,
                 )),
           ),
           SliverPersistentHeader(
             pinned: false,
             floating: false,
             delegate: GeneralSliverDelegate(
-                minHeight: 150, //收起的高度
-                maxHeight: 150, //展开的最大高度
+                minHeight: 500, //收起的高度
+                maxHeight: 500, //展开的最大高度
                 child: Container(
-                  alignment: Alignment.centerLeft,
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemBuilder: (context, index) {
-                      return new Container(
-                        width: 150,
-                        height: 150,
-                        color: Colors.yellow,
-                        margin: EdgeInsets.all(8),
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: <Widget>[new Text(index.toString())],
-                        ),
-                      );
-                    },
-                    itemCount: 50,
-                  ),
-                )),
+                    alignment: Alignment.centerLeft, child: MddMiddleWidget())),
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
@@ -150,7 +137,9 @@ class _StarDetailPage extends State<StarDetailPage> {
   void init() async {
     List temp = await api.getVideoDetail('1');
     List bottomTemp = await api.getBottomTags('北京');
+    Map headBeanTemp = await api.getHeadInfo('北京');
     setState(() {
+      headBean = HeadBean.fromJson(headBeanTemp);
       videolist = temp;
       bottomTags = bottomTemp.cast<String>();
     });

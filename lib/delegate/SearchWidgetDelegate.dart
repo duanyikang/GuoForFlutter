@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app/widget/destinationSearchWidget.dart';
+import 'package:flutter_app/widget/DestinationSearchWidget.dart';
 
 import 'OffsetNotifierData.dart';
 

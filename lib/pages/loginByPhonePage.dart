@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app/widget/nextWidget.dart';
+import 'package:flutter_app/widget/NextWidget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginByPhonePage extends StatefulWidget {

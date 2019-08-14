@@ -11,7 +11,7 @@ class BannerBean {
     this.action,
   });
 
-  BannerBean.formJson(Map json) {
+  BannerBean.fromJson(Map json) {
     id = json['id'];
     url = json['url'];
     type = json['type'];

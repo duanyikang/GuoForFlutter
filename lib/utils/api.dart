@@ -28,6 +28,16 @@ getBanner()async{
   }
 }
 
+getHeadInfo(local)async{
+  var res = await http.get('http://10.10.20.9:8080/mdd/getMddHeadInfo?local=$local');
+  if (res.statusCode == 200) {
+    return convert.jsonDecode(res.body)['data'];
+  } else {
+    print("走到我了？2222: ${res.statusCode}.");
+  }
+}
+
+
 getBottomTags(local)async{
   var res = await http.get('http://10.10.20.9:8080/mdd/getMddBottomTags?local=$local');
   if (res.statusCode == 200) {

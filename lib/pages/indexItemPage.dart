@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/models/Banner.dart';
 import 'package:flutter_app/models/starShop.dart';
-import 'package:flutter_app/widget/starItemWidget.dart';
+import 'package:flutter_app/widget/StarItemWidget.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_app/utils/api.dart' as api;
 
@@ -86,7 +86,7 @@ class _IndexItemListState extends State<IndexItemList>
                   activeSize: 10,
                   space: 5),
               margin: EdgeInsets.all(17)),
-          autoplay: true,
+          autoplay: false,
           duration: 150,
           controller: SwiperController(),
           scrollDirection: Axis.horizontal,
@@ -105,7 +105,7 @@ class _IndexItemListState extends State<IndexItemList>
         padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
         child: ClipRRect(
             child: Image.network(
-              BannerBean.formJson(bannerList[index]).url,
+              BannerBean.fromJson(bannerList[index]).url,
               fit: BoxFit.cover,
             ),
             borderRadius: BorderRadius.only(
