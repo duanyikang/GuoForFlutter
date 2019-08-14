@@ -109,6 +109,9 @@ class _PersonalPage extends State<PersonalPage> {
         ListTile(
           leading: Icon(Icons.bookmark_border),
           title: Text('订单管理'),
+          onTap: (){
+            Navigator.pushNamed(context, '/stardetail');
+          },
         ),
         ListTile(
           leading: Icon(Icons.my_location),

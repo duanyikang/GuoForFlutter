@@ -62,8 +62,8 @@ class _DestinationNearWidget extends State<DestinationNearWidget>
             child: Row(
               children: <Widget>[
                 Container(
-                  height: 110,
-                  width: 110,
+                  height: 60,
+                  width: 60,
                   child: Stack(
                     children: <Widget>[
                       Align(
