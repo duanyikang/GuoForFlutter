@@ -24,6 +24,7 @@ class _StarDetailPage extends State<StarDetailPage> {
   List<dynamic> videolist = [];
   List<String> bottomTags = [];
   HeadBean headBean;
+  int currentPosition = 0;
 
   OffsetNoitiferData vd = OffsetNoitiferData(0);
 
@@ -38,6 +39,7 @@ class _StarDetailPage extends State<StarDetailPage> {
     return Scaffold(
       body: CustomScrollView(
         slivers: <Widget>[
+          //搜索
           SliverPersistentHeader(
             pinned: true, //是否固定在顶部
             floating: false,
@@ -50,59 +52,55 @@ class _StarDetailPage extends State<StarDetailPage> {
                   headBean: headBean,
                 )),
           ),
+          //中间模块
           SliverPersistentHeader(
             pinned: false,
             floating: false,
             delegate: GeneralSliverDelegate(
-                minHeight: 500, //收起的高度
-                maxHeight: 500, //展开的最大高度
+                minHeight: 1000, //收起的高度
+                maxHeight: 1000, //展开的最大高度
                 child: Container(
                     alignment: Alignment.centerLeft, child: MddMiddleWidget())),
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                return new Container(
-                  width: 100,
-                  height: 50,
-                  color: Colors.deepOrange,
-                  margin: EdgeInsets.all(8),
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: <Widget>[new Text(index.toString())],
-                  ),
-                );
-              },
-              childCount: 10,
-            ),
-          ),
+          //底部吸顶模块
           SliverPersistentHeader(
             pinned: true,
             floating: false,
             delegate: GeneralSliverDelegate(
-                minHeight: 80, //收起的高度
-                maxHeight: 80, //展开的最大高度
+                minHeight: 40, //收起的高度
+                maxHeight: 40, //展开的最大高度
                 child: Container(
                   alignment: Alignment.centerLeft,
                   color: Colors.white,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return new Container(
-                        width: 80,
-                        height: 80,
-                        color: Colors.greenAccent,
-                        margin: EdgeInsets.all(8),
-                        child: Stack(
-                          alignment: Alignment.center,
-                          children: <Widget>[new Text(bottomTags[index])],
-                        ),
-                      );
+                      return GestureDetector(
+                          onTap: () {
+                            _onClickTag(index);
+                          },
+                          child: Container(
+                            height: 40,
+                            padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                            margin: EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                                border: new Border.all(
+                                    color: Colors.grey, width: 0.5),
+                                borderRadius: new BorderRadius.circular((5.0)),
+                                color: index == currentPosition
+                                    ? Colors.yellow
+                                    : Colors.transparent),
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: <Widget>[new Text(bottomTags[index])],
+                            ),
+                          ));
                     },
                     itemCount: bottomTags == null ? 0 : bottomTags.length,
                   ),
                 )),
           ),
+          //底部内容区域
           SliverPadding(
             padding: const EdgeInsets.all(8.0),
             sliver: new SliverGrid(
@@ -142,6 +140,14 @@ class _StarDetailPage extends State<StarDetailPage> {
       headBean = HeadBean.fromJson(headBeanTemp);
       videolist = temp;
       bottomTags = bottomTemp.cast<String>();
+    });
+  }
+
+  _onClickTag(int index) async {
+    currentPosition = index;
+    List temp = await api.getVideoDetail('1');
+    setState(() {
+      videolist = temp;
     });
   }
 }

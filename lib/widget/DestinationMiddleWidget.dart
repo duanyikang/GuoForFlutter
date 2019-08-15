@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/widget/DestinationMiddlePageWidget.dart';
 
 import 'DestinationNearWidget.dart';
 
@@ -10,7 +11,6 @@ class MddMiddleWidget extends StatefulWidget {
 }
 
 class _MddMiddleWidget extends State<MddMiddleWidget> {
-
   var urls = [
     "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565791760665&di=aeab583c38eb7d9299251870f55d77e0&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201805%2F13%2F20180513224039_tgfwu.png",
     "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565791760664&di=fbd38894fadcc448c10d70b1755e2358&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201702%2F22%2F20170222200954_zeJWu.thumb.700_0.jpeg",
@@ -36,11 +36,8 @@ class _MddMiddleWidget extends State<MddMiddleWidget> {
                 padding: EdgeInsets.fromLTRB(20, 20, 20, 5),
                 child: Column(
                   children: <Widget>[
-                    Image.network(
-                        urls[index],
-                        width: 50,
-                        height: 50,
-                        fit: BoxFit.cover),
+                    Image.network(urls[index],
+                        width: 50, height: 50, fit: BoxFit.cover),
                     Container(
                       margin: EdgeInsets.only(top: 6),
                       child: Text(
@@ -91,10 +88,7 @@ class _MddMiddleWidget extends State<MddMiddleWidget> {
           child: Row(
             children: <Widget>[
               Container(
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width / 2 - 20,
+                width: MediaQuery.of(context).size.width / 2 - 20,
                 margin: EdgeInsets.all(10),
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
@@ -114,7 +108,7 @@ class _MddMiddleWidget extends State<MddMiddleWidget> {
                           height: 150,
                           placeholder: 'assets/images/iv_default_avatar.png',
                           image:
-                          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565778893661&di=77f728a0a1a01a15b2cdc3ccd6873f91&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D1075255740%2C2110899155%26fm%3D214%26gp%3D0.jpg',
+                              'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565778893661&di=77f728a0a1a01a15b2cdc3ccd6873f91&imgtype=jpg&src=http%3A%2F%2Fimg0.imgtn.bdimg.com%2Fit%2Fu%3D1075255740%2C2110899155%26fm%3D214%26gp%3D0.jpg',
                           fit: BoxFit.cover,
                         ),
                         borderRadius: BorderRadius.only(
@@ -128,10 +122,7 @@ class _MddMiddleWidget extends State<MddMiddleWidget> {
               ),
               Container(
                 height: 200,
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width / 2 - 20,
+                width: MediaQuery.of(context).size.width / 2 - 20,
                 margin: EdgeInsets.all(10),
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
@@ -163,7 +154,7 @@ class _MddMiddleWidget extends State<MddMiddleWidget> {
                             color: Colors.orangeAccent,
                             fontSize: 18,
                             fontWeight: FontWeight.bold)),
-                    Text('4大望京',
+                    Text('4大望京公园',
                         style: TextStyle(
                             color: Colors.black38,
                             fontSize: 18,
@@ -179,7 +170,8 @@ class _MddMiddleWidget extends State<MddMiddleWidget> {
             ],
           ),
         ),
-        DestinationNearWidget()
+        DestinationNearWidget(),
+        DestinationMiddlePageWidget((imgUrl) {})
       ],
     );
   }

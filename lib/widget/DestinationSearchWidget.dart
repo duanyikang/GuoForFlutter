@@ -53,7 +53,7 @@ class _DestinationSearchWidget extends State<DestinationSearchWidget> {
                       fit: BoxFit.cover)),
             )),
         Container(
-          color: Color.fromARGB((currentValue * 255).toInt(), 255, 97, 0),
+          color: Color.fromARGB((currentValue * 255).toInt(), 255, 255, 255),
           padding: EdgeInsets.fromLTRB(
               0, MediaQuery.of(context).padding.top + 10, 0, 0),
           child: Column(
