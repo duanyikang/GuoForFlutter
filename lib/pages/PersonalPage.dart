@@ -108,16 +108,23 @@ class _PersonalPage extends State<PersonalPage> {
         ),
         ListTile(
           leading: Icon(Icons.bookmark_border),
-          title: Text('订单管理'),
+          title: Text('跳转旅行页'),
           onTap: (){
             Navigator.pushNamed(context, '/stardetail');
           },
         ),
         ListTile(
           leading: Icon(Icons.my_location),
-          title: Text('我的WishR'),
+          title: Text('跳转加载更多'),
           onTap: () {
             Navigator.pushNamed(context, '/loadmore', arguments: 1);
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.my_location),
+          title: Text('跳转视频播放'),
+          onTap: () {
+            Navigator.pushNamed(context, '/videoPlayPage', arguments: 1);
           },
         ),
         ListTile(
