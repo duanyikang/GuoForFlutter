@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/delegate/VideoChangeNotifier.dart';
 import 'package:flutter_app/models/video.dart';
 import 'package:flutter_app/widget/videoplay/BottomDragWidget.dart';
+import 'package:chewie/chewie.dart';
+import 'package:flutter_app/widget/videoplay/VideoPlayWidget.dart';
 
 class VideoPlayPage extends StatefulWidget {
   final List<VideoModel> arr = [
@@ -229,20 +231,9 @@ class _VideoPlayPage extends State<VideoPlayPage> {
                     //将要出去的item
                     return Transform(
                       transform: Matrix4.identity()
-                        ..rotateY(_currentPageValue - index)
-                      ,
+                        ..rotateY(_currentPageValue - index),
                       alignment: FractionalOffset.centerRight,
-                      child: new ClipRRect(
-                          child: Image.network(
-                            widget.arr[index].url,
-                            fit: BoxFit.cover,
-                          ),
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(5),
-                            topRight: Radius.circular(5),
-                            bottomLeft: Radius.circular(5),
-                            bottomRight: Radius.circular(5),
-                          )),
+                      child: VideoPlayWidget(),
                     );
                   } else if (index == _currentPageValue.floor() + 1) {
                     //将要进来的item
@@ -250,17 +241,7 @@ class _VideoPlayPage extends State<VideoPlayPage> {
                       transform: Matrix4.identity()
                         ..rotateY(_currentPageValue - index),
                       alignment: FractionalOffset.centerLeft,
-                      child: new ClipRRect(
-                          child: Image.network(
-                            widget.arr[index].url,
-                            fit: BoxFit.cover,
-                          ),
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(5),
-                            topRight: Radius.circular(5),
-                            bottomLeft: Radius.circular(5),
-                            bottomRight: Radius.circular(5),
-                          )),
+                      child: VideoPlayWidget(),
                     );
                   } else {
                     //其他，不在屏幕显示的item
