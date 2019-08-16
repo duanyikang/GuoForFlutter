@@ -28,10 +28,10 @@ class _DestinationNearWidget extends State<DestinationNearWidget>
       });
 
     controller.addStatusListener((AnimationStatus status) {
-      if (status == AnimationStatus.dismissed) {
-        Future.delayed(new Duration(seconds: 2), () {
-          _playAnimation();
-        });
+      if (status == AnimationStatus.completed) {
+        controller.reverse();
+      } else if (status == AnimationStatus.dismissed) {
+        controller.forward();
       }
     });
     _playAnimation();
@@ -40,7 +40,7 @@ class _DestinationNearWidget extends State<DestinationNearWidget>
   Future<Null> _playAnimation() async {
     try {
       await controller.forward();
-      await controller.reverse();
+      //await controller.reverse();
     } on TickerCanceled {}
   }
 

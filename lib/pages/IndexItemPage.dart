@@ -93,8 +93,10 @@ class _IndexItemListState extends State<IndexItemList>
           onTap: (index) {
             if (index == 0) {
               Navigator.pushNamed(context, '/dialogpage', arguments: null);
-            } else {
+            } else if(index==1){
               Navigator.pushNamed(context, '/stardetail', arguments: null);
+            }else{
+              Navigator.pushNamed(context, '/videoPlayPage', arguments: null);
             }
           },
         ));

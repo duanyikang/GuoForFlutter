@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/pages/indexItemPage.dart';
-import 'package:flutter_app/pages/personalPage.dart';
+import 'package:flutter_app/pages/IndexItemPage.dart';
+import 'package:flutter_app/pages/PersonalPage.dart';
 import 'package:flutter_app/utils/api.dart' as api;
 import 'package:shared_preferences/shared_preferences.dart';
 

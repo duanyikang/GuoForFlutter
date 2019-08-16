@@ -1,3 +1,4 @@
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -5,11 +6,11 @@ import 'package:flutter_app/utils/router.dart' as router;
 
 void main() {
   runApp(MyApp());
-//  if (Platform.isAndroid) {
-//    SystemUiOverlayStyle systemUiOverlayStyle =
-//        SystemUiOverlayStyle(statusBarColor: Colors.transparent);
-//    SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
-//  }
+  if (Platform.isAndroid) {
+    SystemUiOverlayStyle systemUiOverlayStyle =
+        SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+    SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+  }
 }
 
 class MyApp extends StatefulWidget {
@@ -25,6 +26,7 @@ class _MyAppState extends State<MyApp> {
     accentColor: Colors.blueAccent,
     backgroundColor: Colors.grey[100],
     scaffoldBackgroundColor: Colors.grey[100],
+    canvasColor: Colors.transparent,
     textTheme: TextTheme(
       headline: TextStyle(),
       title: TextStyle(),
