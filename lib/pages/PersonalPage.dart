@@ -145,8 +145,10 @@ class _PersonalPage extends State<PersonalPage> {
   }
 
   void _receiveMessage() {
-    messageChannel2.setMessageHandler((message){
-      _save(message);
+    print('走到我了？dart 注册');
+    messageChannel2.setMessageHandler((message)async{
+      print('走到我了？dart 接收到了毁掉');
+      //_save(message);
     });
   }
 
