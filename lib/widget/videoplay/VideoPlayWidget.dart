@@ -21,11 +21,12 @@ class _VideoPlayWidget extends State<VideoPlayWidget> {
     _videoPlayerController1 = VideoPlayerController.network(
         'https://v1.nsfile.com/tmp/0/176/76/351098976394674176.mp4');
     _chewieController = ChewieController(
-        videoPlayerController: _videoPlayerController1,
-        aspectRatio: 9 / 16,
-        autoPlay: true,
-        looping: true,
-        showControls: false,);
+      videoPlayerController: _videoPlayerController1,
+      aspectRatio: 9 / 16,
+      autoPlay: true,
+      looping: true,
+      showControls: false,
+    );
   }
 
   @override
@@ -38,20 +39,10 @@ class _VideoPlayWidget extends State<VideoPlayWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: <Widget>[
-      Expanded(
-        child: Center(
-          child: Chewie(
-            controller: _chewieController,
-          ),
-        ),
+    return Center(
+      child: Chewie(
+        controller: _chewieController,
       ),
-      FlatButton(
-        onPressed: () {
-          _chewieController.enterFullScreen();
-        },
-        child: Text('Fullscreen'),
-      ),
-    ]);
+    );
   }
 }

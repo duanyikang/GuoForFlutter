@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/pages/IndexItemPage.dart';
 import 'package:flutter_app/pages/PersonalPage.dart';
-import 'package:flutter_app/utils/api.dart' as api;
+import 'package:flutter_app/utils/Api.dart' as api;
+import 'package:flutter_app/utils/EventBus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class IndexPage extends StatefulWidget {
@@ -15,6 +16,8 @@ class _IndexPageState extends State<IndexPage>
     with SingleTickerProviderStateMixin {
   TabController _tabController;
   List<dynamic> starList = [];
+
+  var eventName = 'login';
   final ValueNotifier<String> user = ValueNotifier<String>("");
 
   @override
@@ -29,11 +32,15 @@ class _IndexPageState extends State<IndexPage>
     setState(() {
       starList = res;
     });
+    bus.on(eventName, (arg) {
+      print('我去走到我了？？？？？？');
+    });
   }
 
   @override
   void dispose() {
     _tabController.dispose();
+    bus.off(eventName);
     super.dispose();
   }
 

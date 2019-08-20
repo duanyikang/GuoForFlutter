@@ -3,7 +3,7 @@ import 'package:flutter_app/models/Banner.dart';
 import 'package:flutter_app/models/starShop.dart';
 import 'package:flutter_app/widget/StarItemWidget.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:flutter_app/utils/api.dart' as api;
+import 'package:flutter_app/utils/Api.dart' as api;
 
 class IndexItemList extends StatefulWidget {
   final List data;

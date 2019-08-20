@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app/utils/EventBus.dart';
 import 'package:flutter_app/widget/NextWidget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -142,5 +143,6 @@ class _LoginByPhonePage extends State<LoginByPhonePage>
   _save() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString("user", "6666666666");
+    bus.emit("login");
   }
 }

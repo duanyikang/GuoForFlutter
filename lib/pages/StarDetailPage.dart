@@ -4,7 +4,7 @@ import 'package:flutter_app/delegate/OffsetNotifierData.dart';
 import 'package:flutter_app/delegate/SearchWidgetDelegate.dart';
 import 'package:flutter_app/models/HeadBean.dart';
 import 'package:flutter_app/models/starShop.dart';
-import 'package:flutter_app/utils/api.dart' as api;
+import 'package:flutter_app/utils/Api.dart' as api;
 import 'package:flutter_app/widget/DestinationMiddleWidget.dart';
 import 'package:flutter_app/widget/DestinationSearchWidget.dart';
 import 'package:flutter_app/widget/StarItemWidget.dart';

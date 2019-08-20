@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_app/utils/router.dart' as router;
+import 'package:flutter_app/utils/Router.dart' as router;
 
 void main() {
   runApp(MyApp());

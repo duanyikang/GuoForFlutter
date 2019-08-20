@@ -23,6 +23,12 @@ class _WelcomePageState extends State<WelcomePage>
   _delayedGoHomePage() {
     Future.delayed(new Duration(seconds: 5), () {
       _goHomePage();
+    }).then((data){
+      print('齐活儿了');
+    }).catchError((e){
+      print('出了异常了：${e.toString()}');
+    }).whenComplete((){
+      print('别管怎么着完成了');
     });
   }
 
