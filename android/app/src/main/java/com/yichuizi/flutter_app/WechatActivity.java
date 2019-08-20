@@ -2,14 +2,7 @@ package com.yichuizi.flutter_app;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.view.View;
-
-import com.yichuizi.flutter_app.plugin.WechatLoginPlugin;
-
-import io.flutter.app.FlutterActivity;
-import io.flutter.plugin.common.EventChannel;
 
 
 /**

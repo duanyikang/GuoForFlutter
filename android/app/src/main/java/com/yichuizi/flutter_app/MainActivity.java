@@ -2,14 +2,9 @@ package com.yichuizi.flutter_app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-
-import com.yichuizi.flutter_app.plugin.WechatLoginPlugin;
 
 import io.flutter.app.FlutterActivity;
 import io.flutter.plugin.common.BasicMessageChannel;
-import io.flutter.plugin.common.EventChannel;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.StandardMessageCodec;
 import io.flutter.plugins.GeneratedPluginRegistrant;
