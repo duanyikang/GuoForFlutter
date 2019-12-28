@@ -2,7 +2,7 @@ import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
 
 getStarList() async {
-  var res = await http.get('http://10.10.20.9:8080/sports/getList');
+  var res = await http.get('http://10.10.20.29:8080/sports/getList');
   if (res.statusCode == 200) {
     return convert.jsonDecode(res.body)['data'];
   } else {
@@ -11,7 +11,7 @@ getStarList() async {
 }
 
 getVideoDetail(id) async {
-  var res = await http.get('http://10.10.20.9:8080/sports/getVideoDetail');
+  var res = await http.get('http://10.10.20.29:8080/sports/getVideoDetail');
   if (res.statusCode == 200) {
     return convert.jsonDecode(res.body)['data'];
   } else {
@@ -20,7 +20,7 @@ getVideoDetail(id) async {
 }
 
 getBanner()async{
-  var res = await http.get('http://10.10.20.9:8080/sports/getBanner');
+  var res = await http.get('http://10.10.20.29:8080/sports/getBanner');
   if (res.statusCode == 200) {
     return convert.jsonDecode(res.body)['data'];
   } else {
@@ -29,7 +29,7 @@ getBanner()async{
 }
 
 getHeadInfo(local)async{
-  var res = await http.get('http://10.10.20.9:8080/mdd/getMddHeadInfo?local=$local');
+  var res = await http.get('http://10.10.20.29:8080/mdd/getMddHeadInfo?local=$local');
   if (res.statusCode == 200) {
     return convert.jsonDecode(res.body)['data'];
   } else {
@@ -39,7 +39,7 @@ getHeadInfo(local)async{
 
 
 getBottomTags(local)async{
-  var res = await http.get('http://10.10.20.9:8080/mdd/getMddBottomTags?local=$local');
+  var res = await http.get('http://10.10.20.29:8080/mdd/getMddBottomTags?local=$local');
   if (res.statusCode == 200) {
     return convert.jsonDecode(res.body)['data'];
   } else {

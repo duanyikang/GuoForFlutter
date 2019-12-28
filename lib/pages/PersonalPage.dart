@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app/models/OrderModel.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PersonalPage extends StatefulWidget {
@@ -14,7 +15,8 @@ class PersonalPage extends StatefulWidget {
 
 class _PersonalPage extends State<PersonalPage> {
   final ValueNotifier<String> user = ValueNotifier<String>("");
-  static const jumpPlugin = const MethodChannel('com.yichuizi.flutter_app/wechat');
+  static const jumpPlugin =
+      const MethodChannel('com.yichuizi.flutter_app/wechat');
   static const messageChannel2 = const BasicMessageChannel(
       'com.yichuizi.flutter_app/wechat_state', StandardMessageCodec());
 
@@ -109,7 +111,7 @@ class _PersonalPage extends State<PersonalPage> {
         ListTile(
           leading: Icon(Icons.bookmark_border),
           title: Text('跳转旅行页'),
-          onTap: (){
+          onTap: () {
             Navigator.pushNamed(context, '/stardetail');
           },
         ),
@@ -125,6 +127,14 @@ class _PersonalPage extends State<PersonalPage> {
           title: Text('跳转视频播放'),
           onTap: () {
             Navigator.pushNamed(context, '/videoPlayPage', arguments: 1);
+          },
+        ),
+        ListTile(
+          leading: Icon(Icons.my_location),
+          title: Text('跳转订单页'),
+          onTap: () {
+            OrderModel bean=OrderModel();
+            Navigator.pushNamed(context, '/orderDetailPage', arguments: bean);
           },
         ),
         ListTile(
@@ -146,7 +156,7 @@ class _PersonalPage extends State<PersonalPage> {
 
   void _receiveMessage() {
     print('走到我了？dart 注册');
-    messageChannel2.setMessageHandler((message)async{
+    messageChannel2.setMessageHandler((message) async {
       print('走到我了？dart 接收到了毁掉');
       //_save(message);
     });

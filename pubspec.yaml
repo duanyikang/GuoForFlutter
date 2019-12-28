@@ -57,6 +57,7 @@ flutter:
     - assets/images/btn_login_wechat.png
     - assets/images/btn_login_phone.png
     - assets/images/iv_index_logo.jpeg
+    - assets/images/iv_address_start.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

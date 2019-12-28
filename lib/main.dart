@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_app/utils/Router.dart' as router;
 
 void main() {
-  print('走到我了？start');
   runApp(MyApp());
   if (Platform.isAndroid) {
     SystemUiOverlayStyle systemUiOverlayStyle =

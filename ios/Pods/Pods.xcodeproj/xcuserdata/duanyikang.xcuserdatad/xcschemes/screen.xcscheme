@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2B6DFB9826B2E0B39A368334C79E5417"
+               BlueprintIdentifier = "8DC4104647FC8C37BA178458D69C624E"
                BuildableName = "libscreen.a"
                BlueprintName = "screen"
                ReferencedContainer = "container:Pods.xcodeproj">

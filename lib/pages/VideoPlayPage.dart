@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/delegate/VideoChangeNotifier.dart';
 import 'package:flutter_app/models/video.dart';
 import 'package:flutter_app/widget/videoplay/BottomDragWidget.dart';
-import 'package:chewie/chewie.dart';
 import 'package:flutter_app/widget/videoplay/VideoPlayWidget.dart';
 
 class VideoPlayPage extends StatefulWidget {
