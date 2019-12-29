@@ -46,7 +46,7 @@ class _OrderDetailPage extends State<OrderDetailPage> {
                   end: Alignment.centerRight,
                 )),
               ))),
-          SliverFillRemaining(
+          SliverToBoxAdapter(
               child: Container(
             decoration: BoxDecoration(color: Color(0xFF1A1A23)),
             child: Column(
@@ -264,11 +264,192 @@ class _OrderDetailPage extends State<OrderDetailPage> {
                               width: 70,
                               height: 70,
                             )),
-                        padding: EdgeInsets.fromLTRB(8,0, 0, 0),
+                        padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
                       ),
                     ],
                   ),
                   padding: EdgeInsets.fromLTRB(18, 8, 18, 0),
+                ),
+
+                //虚线
+                Padding(
+                  child: MySeparator(color: Color(0x1AFFFFFF)),
+                  padding: EdgeInsets.fromLTRB(18, 14, 18, 0),
+                ),
+
+                //一大列文案
+                Padding(
+                  child: Row(
+                    children: <Widget>[
+                      Text(
+                        "价格",
+                        style:
+                            TextStyle(fontSize: 13, color: Color(0x80FFFFFF)),
+                      ),
+                      Spacer(),
+                      Text(
+                        "¥ 80.00",
+                        style:
+                            TextStyle(fontSize: 13, color: Color(0x80FFFFFF)),
+                      ),
+                    ],
+                  ),
+                  padding: EdgeInsets.fromLTRB(18, 14.5, 18, 0),
+                ),
+                Padding(
+                  child: Row(
+                    children: <Widget>[
+                      Text(
+                        "优惠",
+                        style:
+                            TextStyle(fontSize: 13, color: Color(0x80FFFFFF)),
+                      ),
+                      Spacer(),
+                      Text(
+                        "-¥ 80.00",
+                        style:
+                            TextStyle(fontSize: 13, color: Color(0x80FFFFFF)),
+                      ),
+                    ],
+                  ),
+                  padding: EdgeInsets.fromLTRB(18, 14.5, 18, 0),
+                ),
+                Padding(
+                  child: Row(
+                    children: <Widget>[
+                      Text(
+                        "加急",
+                        style:
+                            TextStyle(fontSize: 13, color: Color(0x80FFFFFF)),
+                      ),
+                      Spacer(),
+                      Text(
+                        "¥ 80.00",
+                        style:
+                            TextStyle(fontSize: 13, color: Color(0x80FFFFFF)),
+                      ),
+                    ],
+                  ),
+                  padding: EdgeInsets.fromLTRB(18, 14.5, 18, 0),
+                ),
+                Padding(
+                  child: Row(
+                    children: <Widget>[
+                      Text(
+                        "实付款",
+                        style:
+                            TextStyle(fontSize: 15, color: Color(0x80FFFFFF)),
+                      ),
+                      Spacer(),
+                      Text(
+                        "¥ 80.00",
+                        style:
+                            TextStyle(fontSize: 15, color: Color(0xFFFFE1AF)),
+                      ),
+                    ],
+                  ),
+                  padding: EdgeInsets.fromLTRB(18, 14.5, 18, 0),
+                ),
+
+                //虚线
+                Padding(
+                  child: MySeparator(color: Color(0x1AFFFFFF)),
+                  padding: EdgeInsets.fromLTRB(18, 14, 18, 0),
+                ),
+
+                Padding(
+                  child: Row(
+                    children: <Widget>[
+                      Text(
+                        "付款时间",
+                        style:
+                            TextStyle(fontSize: 13, color: Color(0x80FFFFFF)),
+                      ),
+                      Spacer(),
+                      Text(
+                        "某年某月嘎嘎香",
+                        style:
+                            TextStyle(fontSize: 13, color: Color(0x80FFFFFF)),
+                      ),
+                    ],
+                  ),
+                  padding: EdgeInsets.fromLTRB(18, 14.5, 18, 0),
+                ),
+
+                Padding(
+                  child: Row(
+                    children: <Widget>[
+                      Text(
+                        "订单编号",
+                        style:
+                            TextStyle(fontSize: 13, color: Color(0x80FFFFFF)),
+                      ),
+                      Spacer(),
+                      Text(
+                        "1234568990",
+                        style:
+                            TextStyle(fontSize: 13, color: Color(0x80FFFFFF)),
+                      ),
+                    ],
+                  ),
+                  padding: EdgeInsets.fromLTRB(18, 14.5, 18, 0),
+                ),
+                Padding(
+                  child: Row(
+                    children: <Widget>[
+                      Text(
+                        "创建时间",
+                        style:
+                            TextStyle(fontSize: 13, color: Color(0x80FFFFFF)),
+                      ),
+                      Spacer(),
+                      Text(
+                        "某年某月XXXX",
+                        style:
+                            TextStyle(fontSize: 13, color: Color(0x80FFFFFF)),
+                      ),
+                    ],
+                  ),
+                  padding: EdgeInsets.fromLTRB(18, 14.5, 18, 0),
+                ),
+                //虚线
+                Padding(
+                  child: MySeparator(color: Color(0x1AFFFFFF)),
+                  padding: EdgeInsets.fromLTRB(18, 14, 18, 0),
+                ),
+
+                Padding(
+                  padding: EdgeInsets.fromLTRB(20, 25, 20, 50),
+                  child: Row(
+                    children: <Widget>[
+                      OutlineButton(
+                          onPressed: () {},
+                          borderSide: new BorderSide(
+                              color:Color(0x4DFFFFFF)),
+                          child: Container(
+                            height: 40,
+                            width: 150,
+                            child: Center(
+                              child: Text('联系客服',
+                                  style: TextStyle(
+                                      fontSize: 15, color: Color(0xB3FFFFFF))),
+                            ),
+                          )),
+                      Spacer(),
+                      RaisedButton(
+                          onPressed: () {},
+                          color: Color(0xFFFFE1AF),
+                          child: Container(
+                            height: 40,
+                            width: 150,
+                            child: Center(
+                              child: Text('立即付款',
+                                  style: TextStyle(
+                                      fontSize: 15, color: Color(0xFF0E0E13))),
+                            ),
+                          )),
+                    ],
+                  ),
                 )
               ],
             ),
